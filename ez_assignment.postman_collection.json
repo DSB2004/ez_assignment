@@ -1,0 +1,350 @@
+{
+	"info": {
+		"_postman_id": "b4c469cd-2a58-457f-ba91-f1556e650504",
+		"name": "ez_assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46072917",
+		"_collection_link": "https://damanjeetsingh-4055500.postman.co/workspace/Damanjeet-Singh's-Workspace~6677ce54-c634-404f-841f-ac49fe3e9a5c/collection/46072917-b4c469cd-2a58-457f-ba91-f1556e650504?action=share&source=collection_link&creator=46072917"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"email\":\"janedoe@ex.com\",\r\n    \"password\":\"janedoe@1990\" ,\r\n    \"client_callback_url\":\"http://lccalhost:3000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}user/signup/",
+							"host": [
+								"{{SERVER_URL}}user"
+							],
+							"path": [
+								"signup",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"refresh_token\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImphbmVkb2VAZXguY29tIiwidHlwZSI6InJlZnJlc2hfdG9rZW4iLCJyb2xlIjpudWxsLCJleHAiOjE3ODg3MDc3NzUsImlhdCI6MTc1MjQxOTc3NX0.j-s9XZchsW1jLsDkVAcYf7ez1T7skfCt1_PxwgW4BlM\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}user/refresh/",
+							"host": [
+								"{{SERVER_URL}}user"
+							],
+							"path": [
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forget-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"janedoe@ex.com\",\r\n    \"client_callback_url\":\"http://lccalhost:3000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}user/forget/",
+							"host": [
+								"{{SERVER_URL}}user"
+							],
+							"path": [
+								"forget",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify account",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/user/verify/?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImphbmVkb2VAZXguY29tIiwiZXhwIjoxNzUyNDc3MDc3LCJpYXQiOjE3NTI0NDcwNzd9.XAPS9HoBPBBjkSjDU1BIoUZLXRlAtV3agNFulxhKia4&email=janedoe@ex.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"verify",
+								""
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImphbmVkb2VAZXguY29tIiwiZXhwIjoxNzUyNDc3MDc3LCJpYXQiOjE3NTI0NDcwNzd9.XAPS9HoBPBBjkSjDU1BIoUZLXRlAtV3agNFulxhKia4"
+								},
+								{
+									"key": "email",
+									"value": "janedoe@ex.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"janedoe@ex.com\"\r\n    ,\"password\":\"hehehe\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}user/reset/?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImphbmVkb2VAZXguY29tIiwiZXhwIjoxNzUyNDc3NDkzLCJpYXQiOjE3NTI0NDc0OTN9.LN8EXVimsS_y7QeYsbX2QS4iehaZSV2FjbKX6jpE_fI&email=janedoe@ex.com",
+							"host": [
+								"{{SERVER_URL}}user"
+							],
+							"path": [
+								"reset",
+								""
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImphbmVkb2VAZXguY29tIiwiZXhwIjoxNzUyNDc3NDkzLCJpYXQiOjE3NTI0NDc0OTN9.LN8EXVimsS_y7QeYsbX2QS4iehaZSV2FjbKX6jpE_fI"
+								},
+								{
+									"key": "email",
+									"value": "janedoe@ex.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \"email\":\"janedoe@ex.com\",\r\n    \"password\":\"hehehe\",\r\n    \"client_callback_url\":\"http://lccalhost:3000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}user/login/",
+							"host": [
+								"{{SERVER_URL}}user"
+							],
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "request verification",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"janedoe@ex.com\",\r\n    \"client_callback_url\":\"http://lccalhost:3000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}user/request-verification/",
+							"host": [
+								"{{SERVER_URL}}user"
+							],
+							"path": [
+								"request-verification",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "file",
+			"item": [
+				{
+					"name": "list files",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"janedoe@ex.com\",\r\n  \"password\":\"hehehe\"\r\n}"
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}files",
+							"host": [
+								"{{SERVER_URL}}files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload files",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{OP_ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "description",
+									"value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit magna vel lectus egestas, id faucibus nunc finibus. Suspendisse vel bibendum leo.",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/daman/Downloads/Untitled presentation.pptx"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}files/",
+							"host": [
+								"{{SERVER_URL}}files"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "download file",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"janedoe@ex.com\",\r\n  \"password\":\"hehehe\"\r\n}"
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}files/download/?file_id=4da43f31-c367-4bc6-a8ad-67cf00866ee3",
+							"host": [
+								"{{SERVER_URL}}files"
+							],
+							"path": [
+								"download",
+								""
+							],
+							"query": [
+								{
+									"key": "file_id",
+									"value": "4da43f31-c367-4bc6-a8ad-67cf00866ee3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
