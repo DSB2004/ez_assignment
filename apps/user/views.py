@@ -29,7 +29,7 @@ class LoginViewSet(viewsets.ViewSet):
                 verification_url=f"{client_callback_url}?access_token={verification_token}&email={email}"
                 MailService.send_mail.delay(email=user.email,content=verification_url)
                 return Response({"message":"Please verify your account","url":verification_url},status=403)
-        except user.DoesNotExist:
+        except User.DoesNotExist:
             return Response({"message":f"No account registered to {email}"},status=400)
 
         try:
@@ -190,7 +190,7 @@ class ResetPasswordViewSet(viewsets.ViewSet):
             user.password=hash_password
             user.save()
             return Response({"message":"Password reset"},status=200)
-        except user.DoesNotExist:
+        except User.DoesNotExist:
             return Response({"message":f"No account registered to {email}"},status=400)
         except Exception:
             return Response({"message":"Internal Server Error"},status=500)
@@ -229,7 +229,7 @@ class RefreshTokenViewSet(viewsets.ViewSet):
             refresh_token=JWT.generate_jwt(refresh_token_data,7*24*3600) 
             return Response({"message":"Session refreshed", "access_token":access_token,"refresh_token":refresh_token},status=200)
             
-        except user.DoesNotExist:
+        except User.DoesNotExist:
             return Response({"message":f"No account registered to {email}"},status=400)
         except Exception:
             return Response({"message":"Internal Server Error"},status=500)
